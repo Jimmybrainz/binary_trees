@@ -51,6 +51,7 @@ int binary_tree_is_complete(const binary_tree_t *tree);
 int is_complete_recursive(const binary_tree_t *tree, int index,
 int node_count);
 int count_nodes(const binary_tree_t *tree);
+size_t binary_tree_size(const binary_tree_t *tree);
 binary_tree_t *binary_tree_rotate_left(binary_tree_t *tree);
 binary_tree_t *binary_tree_rotate_right(binary_tree_t *tree);
 int binary_tree_is_bst(const binary_tree_t *tree);
@@ -70,6 +71,8 @@ int is_complete(const binary_tree_t *tree, int index, int count);
 int count_nodes(const binary_tree_t *tree);
 int is_max_heap(const binary_tree_t *tree);
 heap_t *heap_insert(heap_t **root, int value);
+heap_t *find_insertion_parent(heap_t *root);
+void heapify_up(heap_t *node);
 heap_t *array_to_heap(int *array, size_t size);
 int heap_extract(heap_t **root);
 int *heap_to_sorted_array(heap_t *heap, size_t *size);
