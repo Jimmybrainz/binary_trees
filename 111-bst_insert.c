@@ -9,6 +9,8 @@
 
 bst_t *bst_insert(bst_t **tree, int value)
 {
+	bst_t *node;
+
 	if (tree == NULL)
 		return (NULL);
 
@@ -18,32 +20,31 @@ bst_t *bst_insert(bst_t **tree, int value)
 		return (*tree);
 	}
 
-	bst_t *current = *tree;
-
-	while (1)
+	node = *tree;
+	while (node)
 	{
-		if (value < current->n)
+		if (value < node->n)
 		{
-			if (current->left == NULL)
+			if (node->left == NULL)
 			{
-				current->left = binary_tree_node(current, value);
-				return (current->left);
+				node->left = binary_tree_node(node, value);
+				return (node->left);
 			}
-			current = current->left;
+			node = node->left;
 		}
-		else if (value > current->n)
+		else if (value > node->n)
 		{
-			if (current->right == NULL)
+			if (node->right == NULL)
 			{
-				current->right = binary_tree_node(current, value);
-				return (current->right);
+				node->right = binary_tree_node(node, value);
+				return (node->right);
 			}
-			current = current->right;
+			node = node->right;
 		}
 		else
-		{
-			/* Value already exists in the tree */
 			return (NULL);
-		}
 	}
+
+	return (NULL);
 }
+
