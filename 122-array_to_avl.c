@@ -8,15 +8,15 @@
  */
 avl_t *array_to_avl(int *array, size_t size)
 {
-	if (array == NULL || size == 0)
-		return (NULL);
-
 	avl_t *root = NULL;
-
 	size_t i;
+
+	if (array == NULL)
+		return (NULL);
 
 	for (i = 0; i < size; i++)
 		avl_insert(&root, array[i]);
 
 	return (root);
 }
+
